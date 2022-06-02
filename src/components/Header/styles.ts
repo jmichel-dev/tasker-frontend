@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-  background-color: var(--primary);
+  background-color: var(--shape);
 `;
 
 export const Container = styled.div`
@@ -15,7 +15,7 @@ export const Container = styled.div`
   justify-content: space-between;
 
   h2 {
-    color: var(--shape);
+    color: var(--primary);
     font-weight: 600;
   }
 
