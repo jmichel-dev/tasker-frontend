@@ -12,7 +12,12 @@ export const Modal: React.FC<ModalProps> = ({
   children,
 }) => {
   return (
-    <ReactModal isOpen={isOpen} onRequestClose={onCloseModal}>
+    <ReactModal
+      isOpen={isOpen}
+      onRequestClose={onCloseModal}
+      overlayClassName="react-modal-overlay"
+      className="react-modal-content"
+    >
       {children}
     </ReactModal>
   );
