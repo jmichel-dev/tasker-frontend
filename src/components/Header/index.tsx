@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
       </Container>
 
       <Modal isOpen={openNewTaskModal} onCloseModal={handleCloseNewTask}>
-        <NewTaskForm />
+        <NewTaskForm onCloseNewTaskModal={handleCloseNewTask} />
       </Modal>
     </HeaderContainer>
   );
