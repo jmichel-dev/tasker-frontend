@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useTask } from "../../hooks/useTask";
-import { formatDate } from "../../utils/formatter";
+import { formatDate, formatDateInDays } from "../../utils/formatter";
 import { Priority } from "../Priority";
 import { FaCheck } from "react-icons/fa";
 import { Container } from "./styles";
@@ -41,7 +41,7 @@ export const ListTasks = () => {
                   </td>
                   <td>{task.done ? "Finalizado" : "Pendente"}</td>
                   <td>{task.title}</td>
-                  <td>{formatDate(task.schedule)}</td>
+                  <td>{formatDateInDays(task.schedule)}</td>
                   <td>
                     <button onClick={() => toggleTaskDoneStatus(task.id)}>
                       <FaCheck
