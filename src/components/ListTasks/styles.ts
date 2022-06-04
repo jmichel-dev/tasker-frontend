@@ -27,6 +27,7 @@ export const Container = styled.div`
 
       &:nth-child(2) {
         color: var(--text-title);
+        font-weight: 500;
       }
 
       &.income {
