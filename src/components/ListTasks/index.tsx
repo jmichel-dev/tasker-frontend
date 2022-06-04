@@ -18,7 +18,7 @@ export const ListTasks = () => {
     };
   }, []);
 
-  const { tasks } = useTask();
+  const { tasks, toggleTaskDoneStatus } = useTask();
   return (
     <Container>
       <table>
@@ -43,10 +43,10 @@ export const ListTasks = () => {
                   <td>{task.title}</td>
                   <td>{formatDate(task.schedule)}</td>
                   <td>
-                    <button>
+                    <button onClick={() => toggleTaskDoneStatus(task.id)}>
                       <FaCheck
                         size={18}
-                        color={!task.done ? "#969CB3" : "#63e6be"}
+                        color={!task.done ? "#dee2e6" : "#63e6be"}
                       />
                     </button>
                   </td>

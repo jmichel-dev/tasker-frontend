@@ -6,6 +6,7 @@ type TaskRequest = Omit<Task, "id">;
 interface TaskContextProps {
   tasks: Task[];
   createTask: (task: TaskRequest) => Promise<void>;
+  toggleTaskDoneStatus: (id: number) => void;
 }
 
 interface TaskProviderProps {
@@ -27,11 +28,28 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
     });
   };
 
+  const toggleTaskDoneStatus = (id: number) => {
+    const task = tasks.find((taskItem) => taskItem.id === id);
+
+    if (!task) return;
+
+    const taskUpdated = { ...task, done: !task.done };
+
+    setTasks((currentTasks) => {
+      const tasksFiltered = currentTasks.filter(
+        (taskItem) => taskItem.id !== id
+      );
+
+      return [...tasksFiltered, taskUpdated];
+    });
+  };
+
   return (
     <TaskContext.Provider
       value={{
         tasks,
         createTask,
+        toggleTaskDoneStatus,
       }}
     >
       {children}
