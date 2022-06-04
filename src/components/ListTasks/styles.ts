@@ -25,6 +25,11 @@ export const Container = styled.div`
       border: 0;
       color: var(--text-body);
 
+      button {
+        border: none;
+        background: transparent;
+      }
+
       &:first-child {
         width: 5rem;
       }
