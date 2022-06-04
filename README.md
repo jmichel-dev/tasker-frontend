@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# Tasker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Simple way to organize your daily tasks.
+
+This is a project written with React, to trainnig some concepts like Context, Components, Props and styles
+
+## Screens
+
+[![solarized dualmode](https://github.com/jmichel-dev/tasker-frontend/blob/main/img/1.png)](#features)
+
+[![solarized dualmode](https://github.com/jmichel-dev/tasker-frontend/blob/main/img/2.png)](#features)
 
 ## Available Scripts
 
