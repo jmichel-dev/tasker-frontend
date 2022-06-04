@@ -1,10 +1,11 @@
 import { Header } from "../../components/Header";
+import { ListTasks } from "../../components/ListTasks";
 
 export const Home: React.FC = () => {
   return (
     <div>
       <Header />
-      <h1>Home page</h1>
+      <ListTasks />
     </div>
   );
 };
