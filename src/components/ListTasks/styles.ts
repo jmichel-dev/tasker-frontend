@@ -25,7 +25,11 @@ export const Container = styled.div`
       border: 0;
       color: var(--text-body);
 
-      &:nth-child(2) {
+      &:first-child {
+        width: 5rem;
+      }
+
+      &:nth-child(3) {
         color: var(--text-title);
         font-weight: 500;
       }

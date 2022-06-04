@@ -1,17 +1,31 @@
+import { useMemo } from "react";
 import { useTask } from "../../hooks/useTask";
 import { formatDate } from "../../utils/formatter";
+import { Priority } from "../Priority";
 import { Container } from "./styles";
 
+interface PriorityProps {
+  [key: number]: "low" | "medium" | "high";
+}
+
 export const ListTasks = () => {
+  const priority: PriorityProps = useMemo(() => {
+    return {
+      1: "low",
+      2: "medium",
+      3: "high",
+    };
+  }, []);
+
   const { tasks } = useTask();
   return (
     <Container>
       <table>
         <thead>
           <tr>
+            <th></th>
             <th>Status</th>
             <th>Nome da atividade</th>
-            <th>Prioridade</th>
             <th>Criada em</th>
           </tr>
         </thead>
@@ -20,9 +34,11 @@ export const ListTasks = () => {
             tasks.map((task) => {
               return (
                 <tr>
+                  <td>
+                    <Priority priority={priority[task.priority]} />
+                  </td>
                   <td>{task.done ? "Finalizado" : "Pendente"}</td>
                   <td>{task.title}</td>
-                  <td>{task.priority}</td>
                   <td>{formatDate(task.schedule)}</td>
                 </tr>
               );
