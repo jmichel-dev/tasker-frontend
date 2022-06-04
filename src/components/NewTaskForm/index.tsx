@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from "react";
+import { useTask } from "../../hooks/useTask";
 import { Task } from "../../types/task";
 import { Button } from "../UI/Button";
 import { Input } from "../UI/Input";
@@ -13,6 +14,7 @@ interface NewTaskFormProps {
 export const NewTaskForm: React.FC<NewTaskFormProps> = ({
   onCloseNewTaskModal,
 }) => {
+  const { createTask } = useTask();
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [taskPriority, setTaskPriority] = useState("1");
@@ -36,7 +38,7 @@ export const NewTaskForm: React.FC<NewTaskFormProps> = ({
   const handleNewTaskSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    if (taskTitle == "") return;
+    if (taskTitle === "") return;
 
     const task: TaskData = {
       title: taskTitle,
@@ -47,6 +49,7 @@ export const NewTaskForm: React.FC<NewTaskFormProps> = ({
     };
 
     console.log("New task", task);
+    createTask(task);
     cleanUpForm();
     onCloseNewTaskModal();
   };
