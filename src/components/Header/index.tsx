@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal } from "../Modal";
+import { NewTaskForm } from "../NewTaskForm";
 import { Container, HeaderContainer } from "./styles";
 
 export const Header: React.FC = () => {
@@ -22,7 +23,7 @@ export const Header: React.FC = () => {
       </Container>
 
       <Modal isOpen={openNewTaskModal} onCloseModal={handleCloseNewTask}>
-        Hello, Im a modal
+        <NewTaskForm />
       </Modal>
     </HeaderContainer>
   );
